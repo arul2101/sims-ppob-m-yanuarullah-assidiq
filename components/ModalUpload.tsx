@@ -31,9 +31,8 @@ const editImageSchema = z.object({
 type EditImageSchema = z.infer<typeof editImageSchema>;
 
 const ModalUpload: FC<ModalUploadProps> = ({ onClose }) => {
-  const cookies = useCookies();
   const inputFileRef = useRef<HTMLInputElement>();
-  const { register: registerFile, handleSubmit: handleSubmitUpload, control, formState, watch } = useForm<EditImageSchema>({
+  const { handleSubmit: handleSubmitUpload, control, formState, watch } = useForm<EditImageSchema>({
     resolver: zodResolver(editImageSchema)
   });
 

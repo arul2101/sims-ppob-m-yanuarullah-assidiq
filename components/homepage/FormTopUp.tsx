@@ -7,9 +7,8 @@ import ModalNotification from "../ModalNotification";
 import LogoSuccess from "@/public/img/success.png";
 import LogoFailed from "@/public/img/failed.png";
 import { z } from "zod";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { NumericFormat } from "react-number-format";
 import { useTopUp } from "@/hooks/useTopUp";
 
 const topUpSchema = z.object({
@@ -54,7 +53,7 @@ const FormTopUp: FC = () => {
         setShowSuccess(true);
       },
       onError: () => {
-        console.log("error");
+        setShowFailed(true);
       }
     })
 
@@ -85,8 +84,8 @@ const FormTopUp: FC = () => {
 
       {showFailed && (
         <ModalNotification
-          label="Pembayaran listrik prabayar sebesar"
-          nominal={10000}
+          label="Top Up sebesar"
+          nominal={"10.000"}
           logo={LogoFailed}
           status="gagal"
         />

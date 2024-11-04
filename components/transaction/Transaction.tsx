@@ -47,8 +47,6 @@ const Transaction: FC = () => {
 
         setLoading(false)
         setLoadingMore(false);
-
-        console.log(transactionHistory)
       });
 
 
