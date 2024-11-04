@@ -6,7 +6,6 @@ import { MdClose } from "react-icons/md";
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
-import { useCookies } from 'next-client-cookies';
 import toast from 'react-hot-toast';
 import { useUploadProfile } from '@/hooks/useUploadProfile';
 import path from 'path';
