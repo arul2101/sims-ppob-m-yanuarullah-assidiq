@@ -14,7 +14,7 @@ const nav = [
   },
   {
     id: 2,
-    href: '#',
+    href: '/transaction',
     label: "Transaction"
   },
   {
@@ -44,7 +44,7 @@ const Navbar = () => {
           <Link href="/transaction" className="text-[#5e5e5e]">
             Transaction
           </Link> */}
-          
+
           {nav.map(item => (
             <Link key={item.id} href={item.href} className={`${pathname === item.href && 'text-red-700'} text-[#5e5e5e]`}>
               {item.label}

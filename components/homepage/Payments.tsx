@@ -1,16 +1,16 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
 
 type PaymentsProps = {
   label: string;
-  img: StaticImageData;
+  img: string;
 };
 
 const Payments: FC<PaymentsProps> = ({ img, label }) => {
   return (
     <Link
-      href={`/payment/${label.toLowerCase()}`}
+      href={`/payment/${label.toLowerCase().replace(" ", "-")}`}
       className="flex flex-col items-center text-center"
     >
       <div className="w-[60px] h-[60px]">

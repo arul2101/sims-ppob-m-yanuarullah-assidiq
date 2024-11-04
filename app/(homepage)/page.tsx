@@ -8,12 +8,15 @@ const Home: FC = () => {
       <Services />
 
       <h2 className="text-[#545453] font-semibold">Temukan Promo Menarik</h2>
-      <section className="overflow-x-scroll">
+
+      <Banner />
+
+      {/* <section className="overflow-x-scroll">
 
         <div className="flex mt-4 items-center gap-8 flex-nowrap w-[1550px]">
           <Banner />
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

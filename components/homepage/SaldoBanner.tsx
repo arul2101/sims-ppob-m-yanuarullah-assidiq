@@ -5,15 +5,18 @@ import React, { FC, useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 
+import { formatUang } from "./FormTopUp";
+import Skeleton from "../Skeleton";
+
 const SaldoBanner: FC = () => {
-  const {balance, isPending} = useBalance();
+  const { balance, isPending } = useBalance();
   const [showSaldo, setShowSaldo] = useState<boolean>(true);
 
-  if(isPending) return <p>Loading...</p>
+  if (isPending) return <Skeleton />
   return (
     <section className='bg-[url("/img/background-saldo.png")] w-[670px] h-[161px] text-white p-6'>
       <p className="text-[.7rem]">Saldo anda</p>
-      <p className="text-[1.7rem] my-[1.08rem]">Rp {showSaldo ? balance.data.balance : "***"}</p>
+      <p className="text-[1.7rem] my-[1.08rem]">Rp {showSaldo ? formatUang(balance.data.balance) : "***"}</p>
       <p className="text-[.7rem] relative">
         Tutup Saldo{" "}
         {showSaldo ? (

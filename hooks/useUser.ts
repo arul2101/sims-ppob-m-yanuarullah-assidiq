@@ -6,7 +6,7 @@ export function useUser() {
   const cookies = useCookies();
   const { data: user, isPending, error } = useQuery({
     queryKey: ["user"],
-    queryFn: () => getUser(cookies.get('session') as string)
+    queryFn: () => getUser(cookies.get('session') as string),
   })
 
   return {

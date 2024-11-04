@@ -4,11 +4,12 @@ import React, { FC } from "react";
 import ProfilePhoto from "@/public/img/Profile Photo.png";
 import Image from "next/image";
 import { useUser } from "@/hooks/useUser";
+import Skeleton from "../Skeleton";
 
 const WelcomePerson: FC = () => {
-  const { user, isPending } = useUser(); 
+  const { user, isPending } = useUser();
 
-  if(isPending) return <p>Loading...</p>
+  if (isPending) return <Skeleton />
   return (
     <section className="p-4 w-[40%]">
       <div>

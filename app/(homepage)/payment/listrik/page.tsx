@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { FC } from "react";
 import Listrik from "@/public/img/Listrik.png";
-import FormPaymentListrik from "@/components/homepage/FormPaymentListrik";
+import FormPaymentListrik from "@/components/services/FormPaymentListrik";
 
 const page: FC = () => {
   return (

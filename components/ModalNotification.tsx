@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 type ModalNotificationProps = {
   label: string;
   status: string;
-  nominal: number;
+  nominal: string;
   logo: StaticImageData;
   // onConfirm: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -31,6 +31,7 @@ const ModalNotification: FC<ModalNotificationProps> = ({
           className="text-red-500 my-4 font-semibold cursor-pointer"
           onClick={() => {
             // onConfirm(false);
+            router.refresh();
             router.push("/");
           }}
         >

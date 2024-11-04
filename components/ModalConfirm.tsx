@@ -6,8 +6,10 @@ import Logo from "@/public/img/Logo.png";
 type ModalConfirmProps = {
   label: string;
   labelConfirm: string;
-  nominal: number;
+  nominal: string;
   onConfirm: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSubmit: () => void;
+  isPending: boolean;
 };
 
 const ModalConfirm: FC<ModalConfirmProps> = ({
@@ -15,6 +17,8 @@ const ModalConfirm: FC<ModalConfirmProps> = ({
   labelConfirm,
   nominal,
   onConfirm,
+  handleSubmit,
+  isPending
 }) => {
   return (
     <Overlay>
@@ -24,18 +28,28 @@ const ModalConfirm: FC<ModalConfirmProps> = ({
         <p className="mt-4">{label}</p>
         <h2 className="text-[1.4rem] font-semibold">Rp{nominal} ?</h2>
 
-        <p
-          className="text-red-500 my-4 font-semibold cursor-pointer"
-          onClick={() => onConfirm(false)}
-        >
-          {labelConfirm}
-        </p>
-        <p
-          className="text-[#7c7c7b] font-semibold cursor-pointer"
-          onClick={() => onConfirm(false)}
-        >
-          Batalkan
-        </p>
+        {isPending ? <p>loading...</p> : (
+          <>
+            <form onSubmit={handleSubmit}>
+              <button
+                type="submit"
+                className="text-red-500 my-4 font-semibold cursor-pointer"
+              // onClick={() => onConfirm(false)}
+              // onClick={e => e.preventDefault()}
+              >
+                {labelConfirm}
+              </button>
+            </form>
+            <p
+              className="text-[#7c7c7b] font-semibold cursor-pointer"
+              onClick={() => onConfirm(false)}
+            >
+              Batalkan
+            </p>
+          </>
+        )}
+
+
       </div>
     </Overlay>
   );
