@@ -7,6 +7,14 @@
   --foreground: #171717;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -23,5 +31,11 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .input_auth {
+    @apply w-full h-[42px] focus:outline-none border border-[#b3b3b1] rounded-sm py-2 pl-9 placeholder:text-[.8rem] focus:text-[.8rem] text-[.8rem];
   }
 }
