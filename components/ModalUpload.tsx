@@ -74,7 +74,7 @@ const ModalUpload: FC<ModalUploadProps> = ({ onClose }) => {
                 <input
                   {...field}
                   value={value?.fileName}
-                  onChange={(event) => {
+                  onChange={(event: any) => {
                     onChange(event.target.files[0]);
                   }}
                   type="file"
