@@ -152,7 +152,7 @@ export async function transaction(token: string, type: string) {
   }
 }
 
-export async function uploadFile(token: string, file) {
+export async function uploadFile(token: string, file: FormData) {
   try {
     const response = await axiosInstance.put('/profile/image', file, {
       headers: {

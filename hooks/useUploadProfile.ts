@@ -7,7 +7,7 @@ export function useUploadProfile() {
   const cookies = useCookies();
 
   const { mutate: uploadImage, isPending, error, data } = useMutation({
-    mutationFn: (fd: any) => uploadImageApi(cookies.get('session') as string, fd),
+    mutationFn: (file: FormData) => uploadImageApi(cookies.get('session') as string, file),
   });
 
   return {
