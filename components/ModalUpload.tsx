@@ -14,13 +14,13 @@ type ModalUploadProps = {
   onClose: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MAX_FILE_SIZE = 5000000;
+const MAX_FILE_SIZE = 100_000;
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
 
 const editImageSchema = z.object({
   picture: z
     .any()
-    .refine((file) => file?.size <= MAX_FILE_SIZE, `Max image size is 5MB.`)
+    .refine((file) => file?.size <= MAX_FILE_SIZE, `Maksimal gambar adalah 100kb.`)
     .refine(
       (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
       "Format Image yang boleh di upload hanya jpeg dan png"
